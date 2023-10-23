@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const Modal = (props: any) => {
   const [enlarge, setEnlarge] = useState(1);
-  const [open, setOpen] = useState(false);
-  const { key, title, imgUrl, y, x, clickCallback } = props;
+  // const [open, setOpen] = useState(false);
+  const { key, imgUrl, y, x, clickCallback } = props;
 // console.log(props);
   return (
     <Box

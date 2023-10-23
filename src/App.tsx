@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 // import reactLogo from './assets/react.svg'
-import viteLogo from "/vite.svg";
 import map from "./assets/map.png";
 import "./App.css";
 import { Box, Modal as MuiModal, Typography } from "@mui/material";
@@ -83,9 +82,9 @@ function App() {
             height="315"
             src="https://www.youtube-nocookie.com/embed/TIwqAYb7j5Q?si=cOEkoqtMtngsY_Tm"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </Box>
       </MuiModal>
