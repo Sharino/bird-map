@@ -1,1 +1,1 @@
-export { Modal } from "./modal";
+export { BirdContainer } from "./bird-container";

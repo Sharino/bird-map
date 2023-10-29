@@ -10,3 +10,5 @@ RUN apt-get install nginx -y
 COPY --from=build /app/dist /var/www/html/
 EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
+
+# docker build -t sharinobimbam/node-web-app:latest -t sharinobimbam/node-web-app:v1.0 .

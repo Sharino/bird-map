@@ -1,0 +1,1 @@
+export { default as BirdContainer } from "./bird-container";
