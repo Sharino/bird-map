@@ -4,7 +4,6 @@ import ReactPlayer from "react-player";
 // import * as ftp from "basic-ftp";
 
 function Nests({ files }: any) {
-  console.log(files);
   return (
     <Box
       className="player-wrapper"

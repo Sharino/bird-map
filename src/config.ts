@@ -1,53 +1,75 @@
-import peledaAv from "../public/av/peleda.png";
-import klykuoleAv from "../public/av/klykuole.png";
-import danciasnapisAv from "../public/av/danciasnapis.png";
+import peledaAv from "/av/peleda.png.webp";
+import klykuoleAv from "/av/klykuole.png.webp";
+import danciasnapisAv from "/av/danciasnapis.png.webp";
 
-import peledaMain from "../public/mainImg/peleda.jpg";
-import klykuoleMain from "../public/mainImg/klykuole.jpeg";
-import klykuoleMainMot from "../public/mainImg/klykuolemot.jpeg";
-import danciasnapisMain from "../public/mainImg/danciasnapis.jpeg";
+import peledaMain from "/mainImg/peleda.jpeg.webp";
+import klykuoleMain from "/mainImg/klykuole.jpeg.webp";
+import klykuoleMainMot from "/mainImg/klykuolemot.jpeg.webp";
+import danciasnapisMain from "/mainImg/danciasnapis.jpeg.webp";
+import danciasnapisMainMot from "/mainImg/danciasnapismot.jpeg.webp";
 // import kukutisMain from
 
 import peledaText from "./assets/peleda";
 import klykuoleText from "./assets/klykuole";
 
-export default [
+const dev = true;
+
+const dataPath = dev ? "../data" : "/var/www/html/data";
+
+interface Conf {
+  id: string;
+  title: string;
+  subTitle: string;
+  avatarImg: string;
+  mainImg: Array<string>;
+  text: Array<any>;
+  files?: Array<string>;
+  inkilas?: boolean;
+  imgUrl: string;
+  x: number;
+  y: number;
+}
+
+const conf: Array<Conf> = [
   {
-    key: "1",
+    id: "1",
     title: "NAMINĖ PELĖDA",
     subTitle:
       "Strix aluco – tikrųjų pelėdų (Strigidae) šeimos naktinis plėšrus paukštis.",
     avatarImg: peledaAv,
     mainImg: [peledaMain],
     text: peledaText,
-    files: ["../data/c1/1.webm"],
+    files: [dataPath + "/c1/1.webm"],
 
     imgUrl: "",
     x: 123,
     y: 123,
   },
   {
-    key: "2",
+    id: "2",
     title: "KLYKUOLĖ",
     subTitle:
       "Bucephala clangula – žąsinių (Anseriformes) būrio paukštis. Aptinkama visoje Lietuvos teritorijoje.",
     avatarImg: klykuoleAv,
     mainImg: [klykuoleMain, klykuoleMainMot],
     text: klykuoleText,
-    files: ["../data/c2/1.webm"],
+    files: [dataPath + "/c2/1.webm"],
     imgUrl: "",
-    x: 356,
+    x: 300,
     y: 170,
   },
   {
-    key: "3",
+    id: "3",
     title: "DIDYSIS DANČIASNAPIS",
+    subTitle: "mergus merganser",
     avatarImg: danciasnapisAv,
-    mainImg: [danciasnapisMain],
+    mainImg: [danciasnapisMain, danciasnapisMainMot],
     text: klykuoleText,
     inkilas: false,
     imgUrl: "",
-    x: 300,
-    y: 500,
+    x: 120,
+    y: 400,
   },
 ];
+
+export default conf;

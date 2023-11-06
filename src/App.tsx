@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import reactLogo from './assets/react.svg'
-import map from "../public/map.png";
+import map from "/map.png.webp";
 import "./App.css";
 import {
   Backdrop,
@@ -65,34 +65,12 @@ function App() {
       clearTimeout(timer);
     };
   }, [showProjectInfo, showDetails]);
-  // ESM: import * as ftp from "basic-ftp"
-  // const example = async () => {
-  //   console.log(ftp);
-  //   const client = new ftp.Client();
-  //   client.ftp.verbose = true;
-  //   try {
-  //     await client.access({
-  //       host: "stebiu.onlne",
-  //       user: "user",
-  //       password: "123",
-  //       secure: false,
-  //     });
-  //     console.log(await client.list());
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   client.close();
-  // };
-
-  // useEffect(() => {
-  //   console.log(ftp);
-  // }, []);
 
   useEffect(() => {
-    setDetailsData(config.find((itm) => showDetails === itm.key) || {});
+    setValue(0);
+    setDetailsData(config.find((itm) => showDetails === itm.id) || {});
   }, [showDetails]);
 
-  console.log(detailsData);
   return (
     <Box
       sx={{
@@ -107,7 +85,8 @@ function App() {
       {config.map((item) => (
         <BirdContainer
           {...item}
-          clickCallback={() => setShowDetails(item.key)}
+          key={item.id}
+          clickCallback={() => setShowDetails(item.id)}
         />
       ))}
       {/* <MuiModal
@@ -212,7 +191,7 @@ function App() {
             },
             position: "absolute" as "absolute",
             borderRadius: 3,
-            width: "90%",
+            width: "80%",
             height: "90%",
             top: "50%",
             left: "50%",
@@ -225,12 +204,12 @@ function App() {
             alignItems: "start",
             boxShadow: 24,
             p: 4,
+            overflowY: "scroll",
           }}
         >
           <Box
             sx={{
               display: "flex",
-              gap: 3,
               marginBottom: 5,
             }}
           >
@@ -248,6 +227,38 @@ function App() {
               >
                 <CloseIcon fontSize="inherit" />
               </IconButton>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+                marginBottom: 5,
+              }}
+            >
+              <Typography variant="h4">Sveiki atvykę!</Typography>
+              <Typography variant="h5">
+                Šis stendas skirtas stebėti laukinę gamtą, domėtis
+                paslaptingiausių paukščių gyvenimais. Užpalių bendruomenė jau
+                eilę metų kabina inkilus didiesiems paukščiams, tokiems kaip:
+                antys kykuolės, naminės pelėdos ir didieji dančiasnapiai, iš to
+                ir kilo mintis pradėti stebėti pakabintus inkilus, ir
+                išsiaiškinti ar juose apsigyveno laukiami svečiai.
+              </Typography>
+              <Typography variant="h5">
+                Kadangi šių paukščių intensyvesnis gyvenimas inkiluose prasideda
+                tik pavasarį, stengsimės žiemos laikotarpiu jums užfiksuoti
+                didesnių žvėrių, tokių kaip šernų, briedžių, stirnų vaizdų.
+              </Typography>
+              <Typography variant="h5">
+                Tikimės, kad įsitrauksime visi kartu į šį gamtos žaidimą ir vis
+                labiau suprasime kas ten miške triūūūška.
+              </Typography>
+
+              <Box sx={{ maxWidth: "400px" }}>
+                <img style={{ width: "100%" }} src="/padeka.png.webp" />
+              </Box>
             </Box>
           </Box>
         </Box>

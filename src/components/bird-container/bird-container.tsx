@@ -4,8 +4,7 @@ import { useState } from "react";
 export default (props: any) => {
   const [enlarge, setEnlarge] = useState(1);
   // const [open, setOpen] = useState(false);
-  const { key, avatarImg, y, x, clickCallback } = props;
-// console.log(props);
+  const { id, avatarImg, y, x, clickCallback } = props;
   return (
     <Box
       sx={{
@@ -16,7 +15,7 @@ export default (props: any) => {
         height: "100px",
         width: "100px"
       }}
-        onClick={() => clickCallback(key)}
+        onClick={() => clickCallback(id)}
     >
       <Box onMouseOver={() => setEnlarge(2)} onMouseOut={() => setEnlarge(1)}>
         <Box

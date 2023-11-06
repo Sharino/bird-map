@@ -1,7 +1,4 @@
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function Apie({ detailsData }: any) {
   return (
@@ -51,10 +48,10 @@ function Apie({ detailsData }: any) {
 
       {detailsData?.text?.map((text: any) => (
         <Box sx={{ mt: 2 }}>
-          <Typography variant="h6" sx={{ mt: 2 }}>
+          <Typography variant="h5" sx={{ mt: 2 }}>
             {text.title}
           </Typography>
-          <Typography variant="body1" sx={{ mt: 2 }}>
+          <Typography variant="h6" sx={{ mt: 2 }}>
             {text.content}
           </Typography>
         </Box>

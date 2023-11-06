@@ -9,7 +9,8 @@ services:
     environment:
       NODE_ENV: development
     volumes:
-      - 'ftpdata:/mnt/ftpdata'
+      - 'ftpdata:/var/www/html/data'
+      # - 'ftpdata:/mnt/ftpdata'
   ftp-server:
     container_name: ftp
     environment:
