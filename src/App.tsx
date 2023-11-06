@@ -18,6 +18,7 @@ import { BirdContainer } from "./components";
 import config from "./config";
 import Apie from "./pages/apie";
 import Nests from "./pages/nests";
+import theme from "./theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -139,6 +140,9 @@ function App() {
               boxShadow: 24,
               p: 4,
               overflowY: "scroll",
+              [theme.breakpoints.down("sm")]: {
+                p: 2,
+              },
             }}
           >
             <Box
@@ -174,11 +178,6 @@ function App() {
         </Fade>
       </MuiModal>
       <MuiModal
-        sx={
-          {
-            // width: "80%",
-          }
-        }
         open={showProjectInfo}
         onClose={() => setShowDetails("0")}
         aria-labelledby="modal-modal-title"
@@ -205,6 +204,9 @@ function App() {
             boxShadow: 24,
             p: 4,
             overflowY: "scroll",
+            [theme.breakpoints.down("sm")]: {
+              p: 2,
+            },
           }}
         >
           <Box

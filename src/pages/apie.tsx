@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import theme from "../theme";
 
 function Apie({ detailsData }: any) {
   return (
@@ -6,7 +7,7 @@ function Apie({ detailsData }: any) {
       <Box
         sx={{
           display: "flex",
-          gap: 3,
+          gap: 2,
           marginBottom: 5,
         }}
       >
@@ -23,27 +24,44 @@ function Apie({ detailsData }: any) {
               flexDirection: "column",
             }}
           >
-            <Typography id="modal-modal-title" variant="h3">
+            <Typography
+              id="modal-modal-title"
+              variant={"h4"}
+              sx={{
+                [theme.breakpoints.down("sm")]: {
+                  fontSize: 24,
+                },
+              }}
+            >
               {detailsData.title}
             </Typography>
-            <Typography id="modal-modal-title" variant="h4">
+            <Typography
+              id="modal-modal-title"
+              variant={"h5"}
+              sx={{
+                [theme.breakpoints.down("sm")]: {
+                  fontSize: 18,
+                },
+              }}
+            >
               {detailsData.subTitle}
             </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                flexShrink: 0,
+                gap: 2,
+                pt: 2,
+              }}
+            >
+              {detailsData?.mainImg?.map((img: any) => (
+                <img style={{ borderRadius: "24px" }} width="100%" src={img} />
+              ))}
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          flexShrink: 0,
-          gap: 3,
-        }}
-      >
-        {detailsData?.mainImg?.map((img: any) => (
-          <img style={{ borderRadius: "24px" }} width="100%" src={img} />
-        ))}
       </Box>
 
       {detailsData?.text?.map((text: any) => (
