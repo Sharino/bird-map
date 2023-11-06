@@ -4,12 +4,6 @@ COPY . /app
 RUN npm install
 RUN npm run build
 
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install nginx -y
-COPY --from=build /app/dist /var/www/html/
-RUN mkdir /var/www/html/data
-EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
-
-# docker build -t sharinobimbam/node-web-app:latest -t sharinobimbam/node-web-app:v1.0 .
+FROM nginx:mainline-alpine3.18-slim
+COPY --from=build /app/dist /usr/share/nginx/html
+RUN mkdir /usr/share/nginx/html/data
